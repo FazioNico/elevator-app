@@ -6,20 +6,23 @@ import { HomePage } from '../pages/home/home';
 
 import { ElevatorComponent } from '../components/elevator/elevator';
 
+const ionicAppConfig:Object = {
+  mode: 'md'
+};
+const pages:Array<any> = [
+  HomePage
+];
+const components:Array<any> = [
+  ElevatorComponent
+];
+
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    ElevatorComponent
-  ],
+  declarations: [MyApp, ...pages, ...components],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, ionicAppConfig)
   ],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage
-  ],
+  entryComponents: [MyApp, ...pages],
   providers: [{
     provide: ErrorHandler,
     useClass: IonicErrorHandler

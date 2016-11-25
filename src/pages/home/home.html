@@ -1,11 +1,18 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-  lat->{{ (geoPos) ? geoPos?.coords?.latitude : 'loading...' }} <br>
-  lng->{{ (geoPos) ? geoPos?.coords?.longitude : 'loading...' }} <br>
-  <elevator></elevator>
+<ion-content padding text-center [ngStyle]="{'backgroundColor': '#64b5f6'}">
+  <div class="dTable">
+    <div class="dCell">
+      <div class="logoIcon">
+        <ion-icon name="pin"></ion-icon>
+      </div>
+      <div>
+        <elevator></elevator>
+      </div>
+
+      Précision: ~{{ (geoPos) ? geoPos?.coords?.accuracy+'m' : 'loading...' }} <br>
+      lat: {{ (geoPos) ? geoPos?.coords?.latitude : 'loading...' }} <br>
+      lng:{{ (geoPos) ? geoPos?.coords?.longitude : 'loading...' }} <br>
+
+    </div>
+  </div>
 </ion-content>
