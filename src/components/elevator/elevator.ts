@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 
 declare var google;
 
@@ -19,9 +19,10 @@ export class ElevatorComponent {
   mapInitialised:boolean = false;
   apiKey:string;
 
-  constructor() {
-    console.log('Hello Elevator Component');
-    this.text = 'Hello World';
+  constructor(
+    private _ngZone: NgZone
+  ) {
+    this.loadGoogleMaps();
   }
 
 
@@ -90,10 +91,11 @@ export class ElevatorComponent {
     }
 
     displayLocationElevation(location) {
-      console.log('search', location)
+      console.log('test search-> ', this.mapInitialised)
       if(this.mapInitialised === false || !location.coords){
         return null;
       }
+      console.log('search', location)
       let coords:Array<Object> = [{
         'lat':location.coords.latitude,
         'lng':location.coords.longitude
@@ -107,7 +109,9 @@ export class ElevatorComponent {
           if (results[0]) {
             console.log(results[0].elevation + ' meters.')
             /* Use NgZone to fix bug with upload observable data input */
-            this.elevation = +(results[0].elevation).toFixed(0);
+            this._ngZone.run(() => {
+              this.elevation = +(results[0].elevation).toFixed(0)
+            });
           } else {
             console.log(' no result.')
           }
@@ -117,5 +121,8 @@ export class ElevatorComponent {
       })
     }
 
+    test():void{
+      console.log('hello component')
+    }
 
 }
