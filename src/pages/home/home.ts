@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Observable }   from 'rxjs/Observable';
 
 import { Geolocation } from 'ionic-native';
 
@@ -13,15 +14,17 @@ export class HomePage {
 
   @ViewChild(ElevatorComponent)
   elevator: ElevatorComponent;
-  geoPos:any;
+  geoPos:Object;
 
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public navCtrl: NavController
+  ) {
     this.loadPosition()
-    //this.loadGoogleMaps()
   }
 
+  /* Core Methodes */
   loadPosition():void{
-    let watch = Geolocation.watchPosition();
+    let watch:Observable<any> = Geolocation.watchPosition();
     watch.subscribe((data) => {
      // data can be a set of coordinates, or an error (if an error occurred).
      // data.coords.latitude

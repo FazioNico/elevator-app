@@ -14,10 +14,10 @@ declare var google;
 })
 export class ElevatorComponent {
 
-  text: string;
+  text:string;
   elevation:number;
   mapInitialised:boolean = false;
-  apiKey:string = 'AIzaSyBbO-2oFCNKpUN5YG300y89Q5Kr3VwGek8';
+  apiKey:string // = 'YOUR_OWN_GOOGLE_MAP_API_KEY';
 
   constructor(
     private _ngZone: NgZone
@@ -25,8 +25,8 @@ export class ElevatorComponent {
     this.loadGoogleMaps();
   }
 
-
-    loadGoogleMaps(){
+    /* Google Map loading & Initiallisation */
+    loadGoogleMaps():void{
        this.addConnectivityListeners();
        if(typeof google == "undefined" || typeof google.maps == "undefined"){
          //console.log("Google maps JavaScript needs to be loaded.");
@@ -57,7 +57,9 @@ export class ElevatorComponent {
          }
        }
      }
-     addConnectivityListeners(){
+
+     /* Events Connectivity listener for Google Map */
+     addConnectivityListeners():void{
         let onOnline = () => {
           setTimeout(()=> {
             if(typeof google == "undefined" || typeof google.maps == "undefined"){
@@ -76,26 +78,26 @@ export class ElevatorComponent {
         document.addEventListener('online', _=> onOnline, false);
         document.addEventListener('offline', _=> onOffline, false);
     }
-    disableMap(){
 
+    /* Google Map Core Methodes */
+    disableMap():void{
+      // here you can do somthing...
     }
 
-    // Elevator AOI
-    initMap() {
+    initMap():void {
       this.mapInitialised = true;
       setTimeout(()=>{
-        // console.log('google init', google)
-        // console.log('pos-> ', this.geoPos)
-        // this.displayLocationElevation(this.geoPos);
+        // console.log('google SDK init-> ', google)
       },100)
     }
 
-    displayLocationElevation(location) {
-      console.log('test search-> ', this.mapInitialised)
+    /* Elevator API  Methode */
+    displayLocationElevation(location:any):void {
+      //console.log('test search-> ', this.mapInitialised)
       if(this.mapInitialised === false || !location.coords){
         return null;
       }
-      console.log('search', location)
+      //console.log('search', location)
       let coords:Array<Object> = [{
         'lat':location.coords.latitude,
         'lng':location.coords.longitude
@@ -107,11 +109,13 @@ export class ElevatorComponent {
         if (status === google.maps.ElevationStatus.OK) {
           // Retrieve the first result
           if (results[0]) {
-            console.log(results[0].elevation + ' meters.')
+            //console.log(results[0].elevation + ' meters.')
+
             /* Use NgZone to fix bug with upload observable data input */
             this._ngZone.run(() => {
               this.elevation = +(results[0].elevation).toFixed(0)
             });
+
           } else {
             console.log(' no result.')
           }
@@ -120,9 +124,4 @@ export class ElevatorComponent {
         }
       })
     }
-
-    test():void{
-      console.log('hello component')
-    }
-
 }
