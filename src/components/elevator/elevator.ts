@@ -17,7 +17,7 @@ export class ElevatorComponent {
   text: string;
   elevation:number;
   mapInitialised:boolean = false;
-  apiKey:string;
+  apiKey:string = 'AIzaSyBbO-2oFCNKpUN5YG300y89Q5Kr3VwGek8';
 
   constructor(
     private _ngZone: NgZone

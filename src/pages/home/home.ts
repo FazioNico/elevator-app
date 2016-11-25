@@ -12,7 +12,7 @@ import { ElevatorComponent } from '../../components/elevator/elevator';
 export class HomePage {
 
   @ViewChild(ElevatorComponent)
-  private _elevator: ElevatorComponent;
+  elevator: ElevatorComponent;
   geoPos:any;
 
   constructor(public navCtrl: NavController) {
@@ -27,7 +27,7 @@ export class HomePage {
      // data.coords.latitude
      // data.coords.longitude
      console.log('pos->', data)
-     this._elevator.displayLocationElevation(data)
+     this.elevator.displayLocationElevation(data)
      this.geoPos = data
     });
   }
