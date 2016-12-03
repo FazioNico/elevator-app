@@ -35,4 +35,8 @@ export class HomePage {
     });
   }
 
+  round(data:string):string{
+    Number(data).toFixed(0)
+    return data.toString()
+  }
 }

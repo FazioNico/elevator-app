@@ -5,14 +5,20 @@
       <div class="logoIcon">
         <ion-icon name="pin"></ion-icon>
       </div>
+
       <div>
         <elevator></elevator>
       </div>
 
-      Précision: ~{{ (geoPos) ? geoPos?.coords?.accuracy+'m' : 'loading...' }} <br>
-      lat: {{ (geoPos) ? geoPos?.coords?.latitude : 'loading...' }} <br>
-      lng:{{ (geoPos) ? geoPos?.coords?.longitude : 'loading...' }} <br>
+      <div *ngIf="geoPos?.coords?.accuracy">
+        Précision: ~{{ (geoPos) ? round(geoPos?.coords?.accuracy)+'m' : 'loading...' }} <br>
+        lat: {{ (geoPos) ? geoPos?.coords?.latitude : 'loading...' }} <br>
+        lng:{{ (geoPos) ? geoPos?.coords?.longitude : 'loading...' }} <br>
 
+      </div>
+      <div *ngIf="!geoPos?.coords?.accuracy">
+        <h1>Chargement...</h1>
+      </div>
     </div>
   </div>
 </ion-content>
