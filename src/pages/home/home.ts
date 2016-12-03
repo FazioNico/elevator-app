@@ -45,6 +45,8 @@ export class HomePage {
   }
 
   goToMap(){
-    this.navCtrl.push(MapPage)
+    this.navCtrl.push(MapPage, {
+      'geoPos': this.geoPos
+    })
   }
 }

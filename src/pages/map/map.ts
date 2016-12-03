@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 declare var google;
 /*
@@ -14,7 +14,12 @@ declare var google;
 })
 export class MapPage {
 
-  constructor(public navCtrl: NavController) {}
+  constructor(
+    public navCtrl: NavController,
+    public params: NavParams
+  ) {
+    console.log('params-> ', this.params.get('geoPos'))
+  }
 
   ionViewDidLoad() {
     console.log('Hello MapPage! Google Map SDK ready->', google);
