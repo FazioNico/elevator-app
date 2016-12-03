@@ -14,7 +14,14 @@
         Précision: ~{{ (geoPos) ? round(geoPos?.coords?.accuracy)+'m' : 'loading...' }} <br>
         lat: {{ (geoPos) ? geoPos?.coords?.latitude : 'loading...' }} <br>
         lng:{{ (geoPos) ? geoPos?.coords?.longitude : 'loading...' }} <br>
-
+        <div>
+          <br>
+          <span (click)="goToMap()">
+            <button ion-button color="light" outline round>
+              <ion-icon name="map"></ion-icon> View on map
+            </button>
+          </span>
+        </div>
       </div>
       <div *ngIf="!geoPos?.coords?.accuracy">
         <h1>Chargement...</h1>
