@@ -17,7 +17,7 @@ export class GoogleMapService {
   mapInitialised:boolean = false;
 
   constructor(public http: Http) {
-    console.log('Hello GoogleMapService Provider');
+    console.log('Load GoogleMapService Provider');
     this.loadGoogleMaps()
   }
 
