@@ -3,6 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
+import { MapPage } from '../pages/map/map';
 
 import { ElevatorComponent } from '../components/elevator/elevator';
 
@@ -11,6 +12,7 @@ const ionicAppConfig:Object = {
 };
 const pages:Array<any> = [
   HomePage,
+  MapPage
 ];
 const components:Array<any> = [
   ElevatorComponent
