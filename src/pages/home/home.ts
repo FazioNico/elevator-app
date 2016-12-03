@@ -6,8 +6,6 @@ import { Geolocation } from 'ionic-native';
 
 import { ElevatorComponent } from '../../components/elevator/elevator';
 
-import { MapPage } from '../map/map';
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -41,7 +39,4 @@ export class HomePage {
     return (Number(data).toFixed(+decimal)).toString()
   }
 
-  goToMap(){
-    this.navCtrl.push(MapPage)
-  }
 }
