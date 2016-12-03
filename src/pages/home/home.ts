@@ -37,9 +37,8 @@ export class HomePage {
     });
   }
 
-  round(data:string):string{
-    Number(data).toFixed(0)
-    return data.toString()
+  round(data:string, decimal:number = 0):string{
+    return (Number(data).toFixed(+decimal)).toString()
   }
 
   goToMap(){

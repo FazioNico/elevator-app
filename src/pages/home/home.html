@@ -11,9 +11,9 @@
       </div>
 
       <div *ngIf="geoPos?.coords?.accuracy">
-        Précision: ~{{ (geoPos) ? round(geoPos?.coords?.accuracy)+'m' : 'loading...' }} <br>
-        lat: {{ (geoPos) ? geoPos?.coords?.latitude : 'loading...' }} <br>
-        lng:{{ (geoPos) ? geoPos?.coords?.longitude : 'loading...' }} <br>
+        <b>Précision:</b> ~{{ (geoPos) ? round(geoPos?.coords?.accuracy)+'m' : 'loading...' }} <br>
+        <b>Lat:</b> {{ (geoPos) ? round(geoPos?.coords?.latitude, 8) : 'loading...' }} <br>
+        <b>Lng:</b> {{ (geoPos) ? round(geoPos?.coords?.longitude, 8) : 'loading...' }} <br>
         <div>
           <br>
           <span (click)="goToMap()">
