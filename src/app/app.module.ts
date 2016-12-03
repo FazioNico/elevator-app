@@ -7,6 +7,8 @@ import { MapPage } from '../pages/map/map';
 
 import { ElevatorComponent } from '../components/elevator/elevator';
 
+import { GoogleMapService } from '../providers/google-map-service';
+
 const ionicAppConfig:Object = {
   mode: 'md'
 };
@@ -17,6 +19,13 @@ const pages:Array<any> = [
 const components:Array<any> = [
   ElevatorComponent
 ];
+const providers:Array<any> = [
+  {
+    provide: ErrorHandler,
+    useClass: IonicErrorHandler
+  },
+  GoogleMapService
+]
 
 @NgModule({
   declarations: [MyApp, ...pages, ...components],
@@ -25,9 +34,6 @@ const components:Array<any> = [
   ],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, ...pages],
-  providers: [{
-    provide: ErrorHandler,
-    useClass: IonicErrorHandler
-  }]
+  providers: [...providers]
 })
 export class AppModule {}

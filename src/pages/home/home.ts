@@ -8,6 +8,8 @@ import { ElevatorComponent } from '../../components/elevator/elevator';
 
 import { MapPage } from '../map/map';
 
+import { GoogleMapService } from '../../providers/google-map-service';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -19,7 +21,8 @@ export class HomePage {
   geoPos:Object;
 
   constructor(
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    private _gMapService: GoogleMapService
   ) {
     this.loadPosition()
   }
