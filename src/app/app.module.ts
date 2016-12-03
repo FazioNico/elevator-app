@@ -6,6 +6,7 @@ import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
 
 import { ElevatorComponent } from '../components/elevator/elevator';
+import { GoogleMapComponent } from '../components/google-map/google-map';
 
 import { GoogleMapService } from '../providers/google-map-service';
 
@@ -17,7 +18,8 @@ const pages:Array<any> = [
   MapPage
 ];
 const components:Array<any> = [
-  ElevatorComponent
+  ElevatorComponent,
+  GoogleMapComponent
 ];
 const providers:Array<any> = [
   {

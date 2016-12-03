@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+
+import { GoogleMapComponent } from '../../components/google-map/google-map';
 
 declare var google;
 /*
@@ -14,15 +16,22 @@ declare var google;
 })
 export class MapPage {
 
+  geoPoint:any;
+
+  @ViewChild(GoogleMapComponent)
+  gMapComponent: GoogleMapComponent;
+
   constructor(
     public navCtrl: NavController,
     public params: NavParams
   ) {
-    console.log('params-> ', this.params.get('geoPos'))
+    this.geoPoint = this.params.get('geoPos')
   }
 
-  ionViewDidLoad() {
-    console.log('Hello MapPage! Google Map SDK ready->', google);
+  ionViewDidEnter() {
+    console.log('ionViewDidEnter')
+    //console.log('Hello MapPage! Google Map SDK ready->', google);
+    this.gMapComponent.initMap()
   }
 
 }
