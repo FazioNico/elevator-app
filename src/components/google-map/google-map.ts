@@ -1,5 +1,6 @@
 import { Component, ViewChild, Input, ElementRef } from '@angular/core';
 
+import { googleMapStyle } from "./gmap-style";
 declare var google;
 /*
   Generated class for the GoogleMap component.
@@ -30,12 +31,13 @@ export class GoogleMapComponent {
     }
     //setTimeout(()=>{
       let myOptions = {
-          zoom: 13,
+          zoom: 16,
           center: new google.maps.LatLng(this.dataInput.coords.latitude,this.dataInput.coords.longitude),
           mapTypeId: 'roadmap',
           disableDefaultUI: true
       };
       this.map = new google.maps.Map(this.mapElement.nativeElement, myOptions);
+      this.map.setOptions({styles: googleMapStyle});
 
       if(!this.dataInput.coords){
         return false;
