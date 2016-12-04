@@ -34,4 +34,7 @@ export class MapPage {
     this.gMapComponent.initMap()
   }
 
+  goBack(){
+    this.navCtrl.pop()
+  }
 }

@@ -18,13 +18,13 @@ export class HomePage {
 
   @ViewChild(ElevatorComponent)
   elevator: ElevatorComponent;
-  geoPos:Object;
+  geoPos:any;
 
   constructor(
     public navCtrl: NavController,
     private _gMapService: GoogleMapService
   ) {
-    this.loadPosition()
+    this._gMapService.subscribe(event => this.loadPosition())
   }
 
   /* Core Methodes */

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -11,12 +11,15 @@ declare var google;
   for more info on providers and Angular 2 DI.
 */
 @Injectable()
-export class GoogleMapService {
+export class GoogleMapService extends EventEmitter<any> {
 
   apiKey:string // = 'YOUR_OWN_GOOGLE_MAP_API_KEY';
   mapInitialised:boolean = false;
 
-  constructor(public http: Http) {
+  constructor(
+    public http: Http
+  ) {
+    super()
     console.log('Load GoogleMapService Provider');
     this.loadGoogleMaps()
   }
@@ -84,6 +87,7 @@ export class GoogleMapService {
     this.mapInitialised = true;
     setTimeout(()=>{
       console.log('google SDK init-> ', google)
+      this.emit()
     },100)
   }
 }

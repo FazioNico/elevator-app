@@ -7,4 +7,8 @@ page-map {
   .gmnoprint {
       display: none;
   }
+  .back {
+    position: absolute;
+    z-index: 1;
+  }
 }
