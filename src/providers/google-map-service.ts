@@ -2,6 +2,9 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import {GMAP_API_KEY} from "../providers/gmap-config-api.ts";
+
+//const GMAP_CONFIG:string = GMAP_API_KEY;
 declare var google;
 
 /*
@@ -13,7 +16,7 @@ declare var google;
 @Injectable()
 export class GoogleMapService extends EventEmitter<any> {
 
-  apiKey:string // = 'YOUR_OWN_GOOGLE_MAP_API_KEY';
+  apiKey:string = GMAP_API_KEY;
   mapInitialised:boolean = false;
 
   constructor(
