@@ -38,4 +38,8 @@ export class MapPage {
     this.gMapComponent.unsubscribe()
     this.navCtrl.pop()
   }
+
+  updateMap(data){
+    this.gMapComponent.updateMarker(data);
+  }
 }

@@ -75,22 +75,24 @@ export class GoogleMapComponent {
      // data can be a set of coordinates, or an error (if an error occurred).
      // data.coords.latitude
      // data.coords.longitude
-
-     console.log('Map Observable pos->', data.coords.latitude, data.coords.longitude)
-     this.marker.setPosition(new google.maps.LatLng(data.coords.latitude, data.coords.longitude));
-     this.map.setCenter(new google.maps.LatLng(data.coords.latitude, data.coords.longitude));
-
-     this.lineCoordinatesArray.push({'lat': data.coords.latitude, 'lng': data.coords.longitude});
-     var lineCoordinatesPath = new google.maps.Polyline({
-       path: this.lineCoordinatesArray,
-       geodesic: true,
-       strokeColor: '#ff0000',
-       strokeOpacity: 1.0,
-       strokeWeight: 2
-     });
-
-     lineCoordinatesPath.setMap(this.map);
+     this.updateMarker(data)
     });
+  }
+
+  updateMarker(data){
+    console.log('updateMarker')
+    this.marker.setPosition(new google.maps.LatLng(data.coords.latitude, data.coords.longitude));
+    this.map.setCenter(new google.maps.LatLng(data.coords.latitude, data.coords.longitude));
+
+    this.lineCoordinatesArray.push({'lat': data.coords.latitude, 'lng': data.coords.longitude});
+    let lineCoordinatesPath = new google.maps.Polyline({
+      path: this.lineCoordinatesArray,
+      geodesic: true,
+      strokeColor: '#ff0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+    });
+    lineCoordinatesPath.setMap(this.map);
   }
 
   unsubscribe(){

@@ -2,7 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import {GMAP_API_KEY} from "../providers/gmap-config-api.ts";
+import {GMAP_API_KEY} from "../providers/gmap-config-api";
 
 declare var google;
 
