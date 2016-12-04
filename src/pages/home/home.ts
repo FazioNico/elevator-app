@@ -2,13 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Observable }   from 'rxjs/Observable';
 
-import { Geolocation } from 'ionic-native';
-
 import { ElevatorComponent } from '../../components/elevator/elevator';
 
 import { MapPage } from '../map/map';
 
 import { GoogleMapService } from '../../providers/google-map-service';
+import { Geolocalisation } from '../../providers/geolocalisation';
 
 @Component({
   selector: 'page-home',
@@ -22,14 +21,15 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    private _gMapService: GoogleMapService
+    private _gMapService: GoogleMapService,
+    private _geoLocService: Geolocalisation
   ) {
     this._gMapService.subscribe(event => this.loadPosition())
   }
 
   /* Core Methodes */
   loadPosition():void{
-    let watch:Observable<any> = Geolocation.watchPosition();
+    let watch:Observable<any> = this._geoLocService.getPosition();
     watch.subscribe((data) => {
      // data can be a set of coordinates, or an error (if an error occurred).
      // data.coords.latitude
