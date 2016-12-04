@@ -35,6 +35,7 @@ export class MapPage {
   }
 
   goBack(){
+    this.gMapComponent.unsubscribe()
     this.navCtrl.pop()
   }
 }

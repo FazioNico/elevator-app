@@ -8,4 +8,7 @@ google-map {
     height: 100%;
     width: 100%;
   }
+  .gm-style{
+    background: color($colors, primary, base);
+  }
 }

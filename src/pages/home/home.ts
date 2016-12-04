@@ -18,6 +18,8 @@ export class HomePage {
   @ViewChild(ElevatorComponent)
   elevator: ElevatorComponent;
   geoPos:any;
+  watch:Observable<any>;
+  subscribe:any;
 
   constructor(
     public navCtrl: NavController,
@@ -29,8 +31,8 @@ export class HomePage {
 
   /* Core Methodes */
   loadPosition():void{
-    let watch:Observable<any> = this._geoLocService.getPosition();
-    watch.subscribe((data) => {
+    this.watch = this._geoLocService.getPosition();
+    this.watch.subscribe((data) => {
      // data can be a set of coordinates, or an error (if an error occurred).
      // data.coords.latitude
      // data.coords.longitude
@@ -41,10 +43,12 @@ export class HomePage {
   }
 
   round(data:string, decimal:number = 0):string{
-    return (Number(data).toFixed(+decimal)).toString()
+    //return (Number(data).toFixed(+decimal)).toString()
+    return (Number(data)).toString()
   }
 
   goToMap(){
+    //this.sub.unsubscribe()
     this.navCtrl.push(MapPage, {
       'geoPos': this.geoPos
     })

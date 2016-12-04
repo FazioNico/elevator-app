@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable }   from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/debounceTime';
 
 import { Geolocation } from 'ionic-native';
 
@@ -19,6 +20,8 @@ export class Geolocalisation {
   }
 
   getPosition():Observable<any>{
-    return  Geolocation.watchPosition();
+    let geoposition = Geolocation.watchPosition()
+    geoposition.debounceTime(1000)
+    return geoposition;
   }
 }
