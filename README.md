@@ -1,10 +1,10 @@
 #Elevator App
-An Ionic app v2 RC3 build in live for MEAN Stack cours at Nomades Advenced Technologie, Geneva
+The next step of the master branch.
 
-##Features
-  This application simply use data geolocalisation from native devices to display the current elevation. All in real-time actualisation with Observable technology (RxJs)
+##Overview
+  This application simply use data geolocalisation from native devices to display the current elevation and localize user on a Google Map. All in real-time actualisation with Observable technology (RxJs)
 
-##Material using to build
+##Build with
   * good IDE like VisualCode or Atom
   * Google Chrome
   * NVM
@@ -13,6 +13,26 @@ An Ionic app v2 RC3 build in live for MEAN Stack cours at Nomades Advenced Techn
   * Ionic 2 documentation open in browser
   * Google Map API documentation open in browser
 
+### Design tools
+  * [Sketch](https://www.sketchapp.com) - Professional Digital Design for Mac.
+  * [Photoshop](http://www.adobe.com/ch_fr/products/photoshop.html) - Professional Digital Design.
+
+### Development tools
+  * [Atom](https://www.sketchapp.com) - Open Source Professional text editor.
+  * [nvm](https://github.com/creationix/nvm) - Node Version Manager for Mac.
+  * [NodeJS v7](https://nodejs.org) - JavaScript runtime built on Chrome's V8 JavaScript engine.
+
+### Build tools
+  * [Angular 2](https://angular.io/) - TypeScript Mobile & desktop framework.
+  * [Ionic 2](http://ionicframework.com/) - Open source framework for building amazing mobile multi-platform apps.
+
+### API & Web Services
+  * [Google Map API SDK](https://developers.google.com/maps/?hl=fr) -  Map for all platform.
+  * [Google Maps Elevation API](https://developers.google.com/maps/documentation/elevation/intro?hl=fr) -  Get Elevation by geoposition.
+
+### Native Plugin
+  * [Cordova Geolocation](https://github.com/apache/cordova-plugin-geolocation) -  Provides information about the device's location.
+
 ##Starting
   * Fork this repository
   * $ nvm use 7
@@ -20,7 +40,7 @@ An Ionic app v2 RC3 build in live for MEAN Stack cours at Nomades Advenced Techn
   * $ ionic serve
 
 ##Todo
-  * add your own API KEY in `components/elevator/elevator.ts`
+  * add your own API KEY in `providers/google-map-service.ts`
   * add Icon App + Screen Loader App (resources)
 
 ## About author
