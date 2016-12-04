@@ -11,6 +11,8 @@ import { GoogleMapComponent } from '../components/google-map/google-map';
 import { GoogleMapService } from '../providers/google-map-service';
 import { Geolocalisation } from '../providers/geolocalisation';
 
+import {GMAP_API_KEY} from "../providers/gmap-config-api";
+
 
 const ionicAppConfig:Object = {
   mode: 'md'
@@ -36,7 +38,7 @@ const providers:Array<any> = [
 @NgModule({
   declarations: [MyApp, ...pages, ...components, ...pipes],
   imports: [
-    IonicModule.forRoot(MyApp, ionicAppConfig)
+    IonicModule.forRoot(MyApp, ionicAppConfig, GMAP_API_KEY)
   ],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, ...pages],
