@@ -4,7 +4,6 @@ import 'rxjs/add/operator/map';
 
 import {GMAP_API_KEY} from "../providers/gmap-config-api.ts";
 
-//const GMAP_CONFIG:string = GMAP_API_KEY;
 declare var google;
 
 /*
