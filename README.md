@@ -5,13 +5,6 @@ The next step of the master branch.
   This application simply use data geolocalisation from native devices to display the current elevation and localize user on a Google Map. All in real-time actualisation with Observable technology (RxJs)
 
 ##Build with
-  * good IDE like VisualCode or Atom
-  * Google Chrome
-  * NVM
-  * Node 6 or 7
-  * Angular 2 documentation open in browser
-  * Ionic 2 documentation open in browser
-  * Google Map API documentation open in browser
 
 ### Design tools
   * [Sketch](https://www.sketchapp.com) - Professional Digital Design for Mac.
