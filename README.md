@@ -17,6 +17,8 @@ The next step of the master branch.
 
 ### Build tools
   * [Angular 2](https://angular.io/) - TypeScript Mobile & desktop framework.
+  * [ReactiveX](http://reactivex.io/) - An API for asynchronous programming
+with observable streams.
   * [Ionic 2](http://ionicframework.com/) - Open source framework for building amazing mobile multi-platform apps.
 
 ### API & Web Services
